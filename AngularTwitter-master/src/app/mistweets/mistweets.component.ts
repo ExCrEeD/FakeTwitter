@@ -11,7 +11,7 @@ import { UserService } from '../Services/user.service';
 export class MistweetsComponent implements OnInit {
   public allUser$: Observable<Users>;
 
-  constructor(private userService: UserService) {
+  constructor(public userService: UserService) {
     this.getAllUser();
   }
 

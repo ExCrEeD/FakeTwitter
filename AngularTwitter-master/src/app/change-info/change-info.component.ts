@@ -6,33 +6,29 @@ import { UserService } from '../Services/user.service';
 @Component({
   selector: 'app-change-info',
   templateUrl: './change-info.component.html',
-  styleUrls: ['./change-info.component.css']
+  styleUrls: ['./change-info.component.css'],
 })
 export class ChangeInfoComponent implements OnInit {
   public createChange: FormGroup;
   constructor(
     private formBuilder: FormBuilder,
-    private userService: UserService,
+    public userService: UserService,
     private newUser: User
-    
   ) {}
-   ngOnInit(): void {
+  ngOnInit(): void {
     this.createChange = this.formBuilder.group({
       Name: ['', [Validators.required, Validators.minLength(3)]],
       Password: ['', [Validators.required, Validators.minLength(8)]],
     });
   }
 
-  async updateInfo(){
+  async updateInfo() {
     let infoForm = this.createChange.value;
-    this.newUser.username= infoForm.Name;
-    this.newUser.password=infoForm.Password;
+    this.newUser.username = infoForm.Name;
+    this.newUser.password = infoForm.Password;
     this.newUser.idUser = this.userService.getUserId();
     await this.userService.updateUser(this.newUser).toPromise();
     this.createChange.reset();
     alert('Cambios guardados');
-  
-
   }
-
 }

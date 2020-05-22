@@ -1,5 +1,9 @@
 <div class="py-4 px-5">
-  <h3>Todos los Tweets</h3>
+  <h3>
+    {{
+      userService.getLanguage() == "es_MX" ? "Todos los Tweets" : "All Tweets"
+    }}
+  </h3>
   <div class="row">
     <app-tweet-card
       class="col-12 col-md-6 mb-3"

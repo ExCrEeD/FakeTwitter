@@ -3,7 +3,6 @@ import { UserService } from '../Services/user.service';
 import { Router } from '@angular/router';
 import { ThrowStmt } from '@angular/compiler';
 
-
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -13,9 +12,8 @@ export class HomeComponent implements OnInit {
   public showNuevoTweet = false;
   public showInicio = true;
   public showPersonas = false;
-  public showProfile = false; 
+  public showProfile = false;
   public showChageInfo = false;
-
   public user;
 
   constructor(public userService: UserService, public router: Router) {
@@ -28,7 +26,7 @@ export class HomeComponent implements OnInit {
     this.showNuevoTweet = false;
     this.showInicio = false;
     this.showPersonas = false;
-    this.showProfile=false;
+    this.showProfile = false;
     this.showChageInfo = false;
 
     switch (componente) {
@@ -52,11 +50,15 @@ export class HomeComponent implements OnInit {
         this.showChageInfo = true;
         break;
       }
-      
     }
   }
   public signOut() {
     //this.userService.logOut();
     this.router.navigate(['/login']);
+  }
+
+  public setLanguage(language) {
+    this.userService.setLanguage(language);
+    console.log(this.userService.getLanguage());
   }
 }

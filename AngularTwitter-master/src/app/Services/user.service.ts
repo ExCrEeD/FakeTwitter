@@ -1,7 +1,7 @@
-import { Injectable} from '@angular/core';
+import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { User,Users } from '../Model/user';
+import { User, Users } from '../Model/user';
 
 @Injectable({
   providedIn: 'root',
@@ -11,7 +11,7 @@ export class UserService {
   private accessPointUrl: string = 'http://localhost:3000/users';
   /* static instance:UserRegisterService; */
   private loginState = false;
-
+  private language = 'es_MX';
   constructor(private http: HttpClient, private currentUser: User) {
     /*  UserRegisterService.instance = this; */
     this.headers = new HttpHeaders({
@@ -31,7 +31,7 @@ export class UserService {
     });
   }
 
-  public getUsers(): Observable<Users>{
+  public getUsers(): Observable<Users> {
     return this.http.get<Users>(this.accessPointUrl + '/', {
       headers: this.headers,
     });
@@ -42,6 +42,14 @@ export class UserService {
     this.loginState = true;
   }
 
+  public setLanguage(language) {
+    this.language = language;
+  }
+
+  public getLanguage() {
+    return this.language;
+  }
+
   public getUserName() {
     return this.currentUser.username;
   }
@@ -49,8 +57,8 @@ export class UserService {
   public getUserId() {
     return this.currentUser.idUser;
   }
-  public updateUser(user){
-    this.currentUser=user;
+  public updateUser(user) {
+    this.currentUser = user;
     return this.http.post(this.accessPointUrl + '/updateUser', user, {
       headers: this.headers,
     });

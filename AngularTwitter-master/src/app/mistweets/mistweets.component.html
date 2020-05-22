@@ -1,5 +1,5 @@
 <div class="py-4 px-5">
-  <h3>Personas</h3>
+  <h3>{{ userService.getLanguage() == "es_MX" ? "Personas" : "People" }}</h3>
   <div class="row">
     <app-follower
       class="col-12 col-md-6 mb-3"

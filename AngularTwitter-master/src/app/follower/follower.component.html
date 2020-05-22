@@ -1,12 +1,11 @@
-
-    <div class="row cuadrado1 justify-content-center">
-        <div class="colum justify-content-right">
-           <img scr = 'src/assets/Images/user.png'>
-        </div>
-        <div class="colum  nombre">
-            <h4>{{user.username}}</h4> 
-            <button
-            type="button" class="boton"
-            > Seguir </button> 
-        </div>
-    </div>
+<div class="row cuadrado1 justify-content-center">
+  <div class="colum justify-content-right">
+    <img scr="src/assets/Images/user.png" />
+  </div>
+  <div class="colum nombre">
+    <h4>{{ user.username }}</h4>
+    <button type="button" class="boton">
+      {{ userService.getLanguage() == "es_MX" ? "Seguir" : "Follow" }}
+    </button>
+  </div>
+</div>

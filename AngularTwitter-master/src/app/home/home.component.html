@@ -16,18 +16,23 @@
           (click)="navigateComponent('NuevoTweet')"
         >
           <p class="text-center"><i class="fab fa-twitter-square fa-2x"></i></p>
-          <p class="text-center mb-0 small">Nuevo Tweet</p>
+          <p class="text-center mb-0 small">
+            {{
+              userService.getLanguage() == "es_MX" ? "Nuevo Twett" : "New Tweet"
+            }}
+          </p>
         </button>
       </div>
 
-      
       <div class="text-center">
         <button
           class="uk-button px-4 py-3 btn-block btn-d-menu"
           (click)="navigateComponent('Inicio')"
         >
           <p class="text-center"><i class="far fa-newspaper fa-2x"></i></p>
-          <p class="text-center mb-0 small">Inicio</p>
+          <p class="text-center mb-0 small">
+            {{ userService.getLanguage() == "es_MX" ? "Inicio" : "Home" }}
+          </p>
         </button>
       </div>
 
@@ -37,7 +42,9 @@
           (click)="navigateComponent('Profile')"
         >
           <p class="text-center"><i class="fa fa-user-circle fa-2x"></i></p>
-          <p class="text-center mb-0 small">Perfil</p>
+          <p class="text-center mb-0 small">
+            {{ userService.getLanguage() == "es_MX" ? "Perfil" : "Account" }}
+          </p>
         </button>
       </div>
       <div>
@@ -48,8 +55,37 @@
             (click)="navigateComponent('Personas')"
           >
             <p class="text-center"><i class="fas fa-bullhorn fa-2x"></i></p>
-            <p class="text-center mb-0 small">Personas</p>
+            <p class="text-center mb-0 small">
+              {{ userService.getLanguage() == "es_MX" ? "Personas" : "People" }}
+            </p>
           </button>
+        </div>
+      </div>
+      <div class="text-center">
+        <div class="subnav">
+          <button
+            class="uk-button px-4 py-3 btn-block btn-d-menu text-center"
+            type="button"
+          >
+            <p class="text-center"><i class="fas fa-language fa-2x"></i></p>
+            <p class="text-center mb-0 small">
+              {{ userService.getLanguage() == "es_MX" ? "Idioma" : "idiom" }}
+            </p>
+          </button>
+          <div class="subnav-content">
+            <ul>
+              <li>
+                <a (click)="setLanguage('es_MX')">{{
+                  userService.getLanguage() == "es_MX" ? "Español" : "Spanish"
+                }}</a>
+              </li>
+              <li>
+                <a (click)="setLanguage('en_US')">{{
+                  userService.getLanguage() == "es_MX" ? "Ingles" : "English"
+                }}</a>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
       <div>
@@ -59,7 +95,13 @@
             (click)="signOut()"
           >
             <p class="text-center"><i class="fas fa-power-off fa-2x"></i></p>
-            <p class="text-center mb-0 small">Cerrar sesión</p>
+            <p class="text-center mb-0 small">
+              {{
+                userService.getLanguage() == "es_MX"
+                  ? "Cerrar sesion"
+                  : "Logout"
+              }}
+            </p>
           </button>
         </div>
       </div>

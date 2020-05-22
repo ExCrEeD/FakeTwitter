@@ -1,36 +1,47 @@
 <form [formGroup]="createChange" novalidate class="">
+  <div class="form-group">
+    <p>
+      {{
+        userService.getLanguage() == "es_MX"
+          ? "Cambiar Información"
+          : "Change Info"
+      }}
+    </p>
+    <hr />
     <div class="form-group">
-      <p>
-        Cambiar Información
-      </p>
-      <hr />
-      <div class="form-group">
-        <label for="Description">Nombre : </label>
-        <input
+      <label for="Description">
+        {{ userService.getLanguage() == "es_MX" ? "Nombre" : "Name" }}
+      </label>
+      <input
         type="text"
         formControlName="Name"
         name="nameUser"
         class="uk-input"
         id="nameUser"
         [disabled]=""
-        placeholder="Ingresa tu nombre"
-        >
-      </div>
+      />
+    </div>
 
-      <div class="form-group">
-        <label for="Description">Contraseña : </label>
-        <input
+    <div class="form-group">
+      <label for="Description"
+        >{{ userService.getLanguage() == "es_MX" ? "Constraseña" : "Password" }}
+      </label>
+      <input
         type="password"
         class="uk-input"
         formControlName="Password"
         id="passwordUser"
-        placeholder="Ingresa tu contraseña"
         name="passwordUser"
-        >
-      </div>
-      <div class="button">
-        <button type="submit" (click)="updateInfo()">Guardar cambios</button>
-      </div>
+      />
     </div>
-  </form>
-  
+    <div class="button">
+      <button type="submit" (click)="updateInfo()">
+        {{
+          userService.getLanguage() == "es_MX"
+            ? "Guardar Cambios"
+            : "Save changes"
+        }}
+      </button>
+    </div>
+  </div>
+</form>

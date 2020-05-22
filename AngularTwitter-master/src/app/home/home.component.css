@@ -41,3 +41,34 @@
 .text-f5 {
   color: #f5f5f5;
 }
+
+.subnav-content {
+  display: none;
+  float: right;
+  background-color: #222d32;
+  width: 100%;
+  position: absolute;
+  left: 126px;
+  top: 20px;
+}
+
+.subnav-content a {
+  float: left;
+  color: white;
+  text-decoration: none;
+}
+
+.subnav-content a:hover {
+  background-color: #eee;
+  color: black;
+}
+
+.subnav:hover .subnav-content {
+  display: block;
+}
+
+.subnav {
+  float: left;
+  width: 100%;
+  position: relative;
+}

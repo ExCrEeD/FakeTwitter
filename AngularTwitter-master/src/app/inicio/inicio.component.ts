@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable, empty } from 'rxjs';
 import { Tweets } from '../Model/tweet';
 import { TweetService } from '../Services/tweet.service';
+import { UserService } from '../Services/user.service';
 
 @Component({
   selector: 'app-inicio',
@@ -11,7 +12,10 @@ import { TweetService } from '../Services/tweet.service';
 export class InicioComponent implements OnInit {
   public allTweets$: Observable<Tweets>;
 
-  constructor(private tweetService: TweetService) {
+  constructor(
+    public userService: UserService,
+    private tweetService: TweetService
+  ) {
     this.getAllTweets();
   }
 
